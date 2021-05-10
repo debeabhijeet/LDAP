@@ -1,0 +1,14 @@
+dn: uid= ,ou=People,dc=infrabeat,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: ldapPublicKey
+cn: 
+sn: 
+sshPublicKey: 
+loginShell: /bin/bash
+uidNumber: 
+gidNumber: 
+homeDirectory: /home/
+
+

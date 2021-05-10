@@ -1,0 +1,19 @@
+dn: dc=infrabeat,dc=com
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: infrabeat com
+dc: infrabeat
+
+dn: cn=Manager,dc=infrabeat,dc=com
+objectClass: organizationalRole
+cn: Manager
+description: Directory Manager
+
+dn: ou=People,dc=infrabeat,dc=com
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc=infrabeat,dc=com
+objectClass: organizationalUnit
+ou: Group
