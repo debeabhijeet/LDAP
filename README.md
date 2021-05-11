@@ -30,7 +30,7 @@ mv /etc/openldap/slapd.conf /etc/openldap/slapd.conf.org
 ### Creating Empty slapd.conf file
 
 ```shell
-toch /etc/openldap/slapd.conf
+touch /etc/openldap/slapd.conf
 ```
 
 ### Running slaptest Command
