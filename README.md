@@ -123,13 +123,13 @@ olcDatabase: {1} hdb
 olcDbDirectory: /var/lib/ldap
 olcDbIndex: objectClass eq, pres
 olcDbIndex: ou,cn,mail,surname,givenname eq,pres,sub
-olcSuffix: dc=infrabeat,dc=com
-olcRootDN: cn=Manager,dc=infrabeat,dc=com
+olcSuffix: dc=example,dc=com
+olcRootDN: cn=Manager,dc=example,dc=com
 olcRootPW: {SSHA} xxxxxxxxxxxxxxxxxxxx
 olcAccess: {0} to attrs = userPassword, shadowLastChange by 
-  dn = "cn=Manager,dc=infrabeat,dc=com" write by anonymous auth by self write by * none
+  dn = "cn=Manager,dc=example,dc=com" write by anonymous auth by self write by * none
 olcAccess: {1} to dn.base = "" by * read
-olcAccess: {2} to * by dn = "cn=Manager,dc=infrabeat,dc=com" write by * read
+olcAccess: {2} to * by dn = "cn=Manager,dc=example,dc=com" write by * read
 ```
 
 ### Adding the Backend file
