@@ -298,6 +298,8 @@ mv /etc/sssd/sssd.conf /etc/sssd/sssd.conf.org
 Note here that the suffix(dc=,dc=) matches as same as in the ldap server.
 
 ```shell
+vi /etc/sssd/sssd.conf
+
 [domain/default]
 id_provider = ldap
 auth_provider = ldap
