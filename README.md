@@ -42,7 +42,7 @@ slaptest -f /etc/openldap/slapd.conf -F /etc/openldap/slapd.d
 ### Changing values in olcdatabase={0}conf.ldif
 
 ```shell
-vi /etc/openldap/slapd.d/cn=config/olcDatabase \ = {0} config.ldif
+vi /etc/openldap/slapd.d/cn=config/olcDatabase\={0}config.ldif
 
 #Change
 
