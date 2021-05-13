@@ -125,7 +125,7 @@ olcDbIndex: objectClass eq, pres
 olcDbIndex: ou,cn,mail,surname,givenname eq,pres,sub
 olcSuffix: dc=example,dc=com
 olcRootDN: cn=Manager,dc=example,dc=com
-olcRootPW: {SSHA} xxxxxxxxxxxxxxxxxxxx
+olcRootPW: {SSHA}xxxxxxxxxxxxxxxxxxxx
 olcAccess: {0} to attrs = userPassword, shadowLastChange by 
   dn = "cn=Manager,dc=example,dc=com" write by anonymous auth by self write by * none
 olcAccess: {1} to dn.base = "" by * read
@@ -145,23 +145,23 @@ Replace dc=,dc= with your own Suffix.
 ```shell
 vi basedomain.ldif
 
-dn: dc=infrabeat,dc=com
+dn: dc=example,dc=com
 objectClass: top
 objectClass: dcObject
 objectclass: organization
-o: infrabeat com
-dc: infrabeat
+o: example com
+dc: example
 
-dn: cn=Manager,dc=infrabeat,dc=com
+dn: cn=Manager,dc=example,dc=com
 objectClass: organizationalRole
 cn: Manager
 description: Directory Manager
 
-dn: ou=People,dc=infrabeat,dc=com
+dn: ou=People,dc=example,dc=com
 objectClass: organizationalUnit
 ou: People
 
-dn: ou=Group,dc=infrabeat,dc=com
+dn: ou=Group,dc=example,dc=com
 objectClass: organizationalUnit
 ou: Group
 ```
@@ -171,7 +171,7 @@ ou: Group
 Make sure you have content in slapd.conf file, And database module selected as hbd and included modules and schemas by removing the hash (#) before it in config file. (try moving back slapd.conf.org to slapd.conf and make the changes)
 
 ```shell
-ldapadd -x -D cn=Manager,dc=infrabeat,dc=com -W -f basedomain.ldif
+ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
 ```
 
 ### Creating Certificates
@@ -252,7 +252,7 @@ systemctl restart slapd
 ```shell
 slappasswd
 New password:
-Re-enter new password: {SSHA} xxxxxxxxx
+Re-enter new password: {SSHA}xxxxxxxxx
 ```
 
 ### Creating ldif file for adding user entry
@@ -260,13 +260,13 @@ Re-enter new password: {SSHA} xxxxxxxxx
 ```shell
 vi ldapuser.ldif
 
-dn: uid=username,ou=People,dc=srv,dc=world
+dn: uid=username,ou=People,dc=example,dc=com
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
 cn: username
 sn: user_surname
-userPassword: {SSHA} xxxxxxxxxxxxxxx
+userPassword: {SSHA}xxxxxxxxxxxxxxx
 loginShell: /bin/bash
 uidNumber: user_id_number
 gidNumber: group_id_number
@@ -276,7 +276,7 @@ homeDirectory: /home/username
 ### Adding the user to LDAP DB
 
 ```shell
-ldapadd -x -D cn=Manager,dc=infrabeat,dc=com -W -f ldapuser.ldif
+ldapadd -x -D cn=Manager,dc=example,dc=com -W -f ldapuser.ldif
 ```
 
 ## CONFIGURING SYSTEM AS LDAP CLIENT
@@ -304,14 +304,14 @@ vi /etc/sssd/sssd.conf
 id_provider = ldap
 auth_provider = ldap
 ldap_uri = ldap://ldap.server.ip.or.dns
-ldap_search_base = dc=infrabeat,dc=com
+ldap_search_base = dc=example,dc=com
 cache_credentials = True
 ldap_tls_cacertdir = /etc/openldap/certs
 ldap_tls_reqcert = allow
 
 [sssd]
 config_file_version = 2
-services = nss, pam
+services = nss, pam, sudo
 domains = default
 
 [nss]
@@ -373,7 +373,7 @@ session optional        pam_umask.so
 session optional        pam_systemd.so
 session optional        pam_gnome_keyring.so    auto_start only_if=gdm,gdm-password,lxdm,lightdm
 session optional        pam_env.so
-session optional        pam_mkhomedir.so skel=/etc/skel umask=077
+session optional        pam_mkhomedir.so skel=/etc/skel umask=0022
 ```
 
 ### Changing the parameter's value in nnsswitch.conf
