@@ -52,10 +52,10 @@ olcAccess: {0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,c
 ### Changing Permissions and Ownerships
 
 ```shell
-chown –R ldap:ldap /etc/openldap/slapd.d
-chmod –R 700 /etc/openldap/slapd.d
-chown –R ldap:ldap /var/lib/ldap
-chmod –R 700 /var/lib/ldap
+chown ldap:ldap /etc/openldap/slapd.d
+chmod 700 /etc/openldap/slapd.d
+chown ldap:ldap /var/lib/ldap
+chmod 700 /var/lib/ldap
 ```
 
 ### Permanently starting the slapd service
