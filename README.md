@@ -78,7 +78,7 @@ Re-enter new password:
 
 ```shell
 vi chrootpw.ldif
-dn: olcDatabase = {0} config, cn = config
+dn: olcDatabase={0}config,cn=config
 changetype: modify
 add: olcRootPW
 olcRootPW: #give the SSHA password here
