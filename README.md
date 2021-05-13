@@ -81,7 +81,7 @@ vi chrootpw.ldif
 dn: olcDatabase={0}config,cn=config
 changetype: modify
 add: olcRootPW
-olcRootPW: #give the SSHA password here
+olcRootPW: {SSHA}xxxxxxxxxxxxxxxxxxxxxxxx #give the SSHA password here
 ```
 
 ### Adding admin entry to LDAP DB
