@@ -71,7 +71,7 @@ systemctl enable slapd
 slappasswd
 New password:
 Re-enter new password:
-{SSHA} xxxxxxxxxxxxxxxxxxxxxxxx
+{SSHA}xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ### Creating Admin ldif file
