@@ -127,23 +127,24 @@ olcModuleload: back_hdb
 dn: olcDatabase=hdb,cn=config
 objectClass: olcDatabaseConfig
 objectClass: olcHdbConfig
-olcDatabase: {1} hdb
+olcDatabase: {1}hdb
 olcDbDirectory: /var/lib/ldap
-olcDbIndex: objectClass eq, pres
+olcDbIndex: objectClass eq,pres
 olcDbIndex: ou,cn,mail,surname,givenname eq,pres,sub
 olcSuffix: dc=example,dc=com
 olcRootDN: cn=Manager,dc=example,dc=com
-olcRootPW: {SSHA}xxxxxxxxxxxxxxxxxxxx
-olcAccess: {0} to attrs = userPassword, shadowLastChange by 
-  dn = "cn=Manager,dc=example,dc=com" write by anonymous auth by self write by * none
-olcAccess: {1} to dn.base = "" by * read
-olcAccess: {2} to * by dn = "cn=Manager,dc=example,dc=com" write by * read
+olcRootPW: {SSHA}xxxxxxxxxxxxxxxxxxxxxxxx
+olcAccess: {0}to attrs=userPassword,shadowLastChange by 
+  dn="cn=Manager,dc=example,dc=com" write by anonymous auth by self write by * none
+olcAccess: {1}to dn.base="" by * read
+olcAccess: {2}to * by dn="cn=Manager,dc=example,dc=com" write by * read
+
 ```
 
 ### Adding the Backend file
 
 ```shell
-ldapadd –Y EXTERNAL –H ldapi:/// -f backend.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f backend.ldif
 ```
 
 ### Creating the Basedomain file
