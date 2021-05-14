@@ -389,9 +389,11 @@ session optional        pam_env.so
 session optional        pam_mkhomedir.so skel=/etc/skel umask=0022
 ```
 
-### Changing the parameter's value in nnsswitch.conf
+### Changing the parameter's value in nsswitch.conf
 
 ```shell
+vi /etc/nsswitch.conf
+
 passwd: compat sss
 group: compat sss
 ```
