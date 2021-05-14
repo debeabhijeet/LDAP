@@ -5,7 +5,7 @@
 ### Installing LDAP Package
 
 ```shell
-zypper -n install openldap2*
+zypper -n install openldap2 openldap2-client
 ```
 
 ### Changing parameter's value in Openldap file
