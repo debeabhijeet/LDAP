@@ -188,6 +188,7 @@ ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
 
 ```shell
 cd /etc/ssl/private
+
 openssl genrsa -des3 -out server.key 2048
 ```
 
@@ -209,6 +210,7 @@ openssl req -new -days 3650 -key server.key -out server.csr
 
 ```shell
 openssl x509 -in server.csr -out server.crt -req -signkey server.key -days 3650
+
 chmod 400 server.key
 ```
 
