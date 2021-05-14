@@ -258,7 +258,24 @@ ldapmodify -Y EXTERNAL -H ldapi:/// -f mod_ssl.ldif
 systemctl restart slapd
 ```
 
-## ADDING USERS TO LDAP SERVER
+## ADDING GROUPS & USERS TO LDAP SERVER
+
+### Creating ldif file for adding group entry
+
+```shell
+vi ldapgroup.ldif
+
+dn: cn=normal,ou=Group,dc=example,dc=com
+objectClass: posixGroup
+cn: NORMAL
+gidNumber: group_id_number
+```
+
+### Adding the group to LDAP DB
+
+```shell
+ldapadd -x -D cn=Manager,dc=tlc,dc=com -W -f ldapuser.ldif
+```
 
 ### Generating SSHA Password for user
 
