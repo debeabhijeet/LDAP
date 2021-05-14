@@ -261,7 +261,7 @@ systemctl restart slapd
 ```shell
 slappasswd
 New password:
-Re-enter new password: {SSHA}xxxxxxxxx
+Re-enter new password: {SSHA}xxxxxxxxxx
 ```
 
 ### Creating ldif file for adding user entry
@@ -395,5 +395,6 @@ group: compat sss
 ### Restart the sssd & nscd service
 
 ```shell
+systemctl start sssd nscd
 systemctl enable sssd nscd
 ```
