@@ -48,9 +48,10 @@ slaptest -f /etc/openldap/slapd.conf -F /etc/openldap/slapd.d
 
 ```shell
 vi /etc/openldap/slapd.d/cn=config/olcDatabase\={0}config.ldif
-#Remove
 
-# CRC32 xxxxxxxx
+#Remove line
+
+"#CRC32 xxxxxxxx"
 
 #Change
 
