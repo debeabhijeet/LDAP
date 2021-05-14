@@ -209,6 +209,7 @@ openssl req -new -days 3650 -key server.key -out server.csr
 
 ```shell
 openssl x509 -in server.csr -out server.crt -req -signkey server.key -days 3650
+chmod 400 server.key
 ```
 
 ### Configure LDAP TLS
