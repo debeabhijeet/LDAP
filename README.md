@@ -32,6 +32,11 @@ mv /etc/openldap/slapd.conf /etc/openldap/slapd.conf.org
 ```shell
 touch /etc/openldap/slapd.conf
 ```
+### Before Running slaptest command do the following
+
+```shell
+rm -rf /etc/openldap/slapd.d/*
+```
 
 ### Running slaptest Command
 
@@ -43,6 +48,9 @@ slaptest -f /etc/openldap/slapd.conf -F /etc/openldap/slapd.d
 
 ```shell
 vi /etc/openldap/slapd.d/cn=config/olcDatabase\={0}config.ldif
+#Remove
+
+# CRC32 xxxxxxxx
 
 #Change
 
@@ -52,10 +60,10 @@ olcAccess: {0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,c
 ### Changing Permissions and Ownerships
 
 ```shell
-chown ldap:ldap /etc/openldap/slapd.d
-chmod 700 /etc/openldap/slapd.d
-chown ldap:ldap /var/lib/ldap
-chmod 700 /var/lib/ldap
+chown -R ldap. /etc/openldap/slapd.d
+chmod -R 700 /etc/openldap/slapd.d
+chown -R ldap. /var/lib/ldap
+chmod -R 700 /var/lib/ldap
 ```
 
 ### Permanently starting the slapd service
