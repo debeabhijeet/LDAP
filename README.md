@@ -188,13 +188,13 @@ ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
 
 ```shell
 cd /etc/ssl/private
-opensslgenrsa -des3 -out server.key 2048
+openssl genrsa -des3 -out server.key 2048
 ```
 
 ### Removing Passphrase
 
 ```shell
-opensslrsa -in server.key -out server.key
+openssl rsa -in server.key -out server.key
 ```
 
 ### Information for Certificate
@@ -202,7 +202,7 @@ opensslrsa -in server.key -out server.key
 Enter the details after running the following command.
 
 ```shell
-opensslreq -new -days 3650 -key server.key -out server.csr
+openssl req -new -days 3650 -key server.key -out server.csr
 ```
 
 ### Requesting key and changing permission
