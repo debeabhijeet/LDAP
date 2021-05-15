@@ -63,6 +63,8 @@ olcAccess: {0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=external,c
 ```shell
 chown -R ldap. /etc/openldap/slapd.d
 chmod -R 700 /etc/openldap/slapd.d
+chown -R ldap. /usr/lib/openldap
+chmod -R 700 /usr/lib/openldap
 chown -R ldap. /var/lib/ldap
 chmod -R 700 /var/lib/ldap
 ```
