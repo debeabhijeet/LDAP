@@ -180,8 +180,6 @@ ou: Group
 
 ### Adding the Basedomain file
 
-Make sure you have content in slapd.conf file, And database module selected as hbd and included modules and schemas by removing the hash (#) before it in config file. (try moving back slapd.conf.org to slapd.conf and make the changes).
-
 ```shell
 ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
 ```
