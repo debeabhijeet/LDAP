@@ -276,7 +276,7 @@ gidNumber: group_id_number
 ### Adding the group to LDAP DB
 
 ```shell
-ldapadd -x -D cn=Manager,dc=tlc,dc=com -W -f ldapuser.ldif
+ldapadd -x -D cn=Manager,dc=tlc,dc=com -W -f ldapgroup.ldif
 ```
 
 ### Generating SSHA Password for user
